@@ -32,3 +32,7 @@ Route::patch('auth/testPatch', "PracticeController@testPatch")
 
 Route::delete('auth/testDelete/{id}', "PracticeController@testDelete")
 ->name('testDelete');
+
+Route::get('auth/hello', function(){
+    return view('hello', ['first_name' => 'Stefan']);
+});
