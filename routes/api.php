@@ -13,13 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:api')->get('/user', "HomeController@user");
 
-Route::get('auth/test/home', function(){
-    return "home";
-});
+Route::get('auth/test/home', "HomeController@home");
 
 Route::get('auth/testG', "PracticeController@testG")->name('testGet')->middleware('checkAge');
 
@@ -33,6 +29,6 @@ Route::patch('auth/testPatch', "PracticeController@testPatch")
 Route::delete('auth/testDelete/{id}', "PracticeController@testDelete")
 ->name('testDelete');
 
-Route::get('auth/hello', function(){
-    return view('hello', ['first_name' => 'Stefan']);
-});
+Route::get('auth/hello', "HomeController@hello");
+
+Route::resource('auth/resourse', 'TheController');
