@@ -16,3 +16,19 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('auth/test/home', function(){
+    return "home";
+});
+
+Route::get('auth/testG', "PracticeController@testG")->name('testGet')->middleware('checkAge');
+
+Route::post('auth/testP', "PracticeController@testP")->name('testPost');
+
+Route::put('auth/testPut', "PracticeController@testPut")->name('testPut');
+
+Route::patch('auth/testPatch', "PracticeController@testPatch")
+->name('testPatch');
+
+Route::delete('auth/testDelete/{id}', "PracticeController@testDelete")
+->name('testDelete');
